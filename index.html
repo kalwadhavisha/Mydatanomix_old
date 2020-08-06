@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <title> My Web Page</title>
@@ -8,6 +10,89 @@
         <header height='100'> <h1> My Site </h1></header>
 
         <main>
+
+            <section>
+                <table border='1px'width='100%' >
+                    <thead>
+                        <th width='200'>Pizza Menu</th>
+                        <th width='200'>Ingredients</th>
+                        <th>Price</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Pepperoni</td>
+                            <td>Pepperoni, Mozza Cheese</td>
+                            <td>$18.99</td>
+                        </tr>
+
+                        <tr>
+                            <td>Veggie Lover</td>
+                            <td>Tomato, Basil, Onion, Bell Peppers, Greens, Cheese</td>
+                            <td>$15.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            
+            <section id='contact-forms'>
+                <h3> Place Order Form: </h3>
+                <form method="GET" action='placr-order.php'>
+
+                    <h4> Enter the Address: </h4>
+                    <input name='address1' placeholder="Address Line 1" class="large-input" /><br />
+                    <input name='address2' placeholder="Address Line 2" class="large-input" /><br />
+                    <input name='city' placeholder="City" class="small-input" />
+                    <input name='state' placeholder="State" class="small-input" /><br />
+                    <input name='zip' placeholder="Zip Code" class="small-input" /><br /><br />
+
+                    <h4> Size of the pizza: </h4>
+                    <select name="sizePizza" >
+                        <option value="12inch"> 12" - $13.99 </option>
+                        <option value="16inch"> 16" - $16.99 </option>
+                        <option value="20inch"> 20" - $20.99 </option>
+                        <option value="22inch"> 22" - $22.99 </option>
+
+                    </select>
+
+                    <h4> Select the Ingredients: </h4>
+                    <input name="ingredient" value="pepperoni" type="checkbox" /> Pepperoni <br />
+                    <input name="ingredient" value="cheese" type="checkbox" /> Cheese <br />
+                    <input name="ingredient" value="veggies" type="checkbox" /> Veggies <br />
+                    <input name="ingredient" value="onion" type="checkbox" /> Onions <br />
+                    <input name="ingredient" value="green-pepper" type="checkbox" /> Green Peppers <br />
+
+                    <h4> Select Delivery or Pickup: </h4>
+                    <input name="deliveryMethod" type="radio" value="delivery" /> Delivery <br />
+                    <input name="deliveryMethod" type="radio" value="pickup" /> Pickup <br /><br />
+
+                    <button type="submit"> Place Order </button>
+
+                </form>
+            </section>
+
+            <section>
+                <video width="540" height="320" controls>
+                    <source src="intro.mp4" type="video/mp4" >
+                </video>
+            </section>
+
+            <section>
+                <br /><br />
+                <audio width="600" controls>
+                    <source src="intro.mp3" type="audio/mp3" >
+                </audio>
+            </section>
+
+            <section>
+                <br /><br />About me. Some content goes in here.
+            </section>
+
+            <section>
+                Contact forms here. All links to social media sites here.   
+            </section>
+
 
             <section>
 
@@ -60,73 +145,6 @@
                     <p> This is the article content acting as the headlines for the article</p>
                 </article>
             
-            </section>
-
-            <section id='contact-forms'>
-                <h3> Place Order Form: </h3>
-                <form method="GET" action='placr-order.php'>
-
-                    <h4> Enter the Address: </h4>
-                    <input name='address1' placeholder="Address Line 1" class="large-input" /><br />
-                    <input name='address2' placeholder="Address Line 2" class="large-input" /><br />
-                    <input name='city' placeholder="City" class="small-input" />
-                    <input name='state' placeholder="State" class="small-input" /><br />
-                    <input name='zip' placeholder="Zip Code" class="small-input" /><br />
-
-                    <h4> Select the Ingredients: </h4>
-                    <input name="pepperoni" type="checkbox" /> Pepperoni <br />
-                    <input name="cheese" type="checkbox" /> Cheese <br />
-                    <input name="veggies" type="checkbox" /> Veggies <br />
-                    <input name="onion" type="checkbox" /> Onions <br />
-                    <input name="green-pepper" type="checkbox" /> Green Peppers <br />
-
-                    <h4> Select Delivery or Pickup: </h4>
-                    <input name="delivery" type="radio" value="delivery" /> Delivery <br />
-                    <input name="delivery" type="radio" value="pickup" /> Pickup <br />
-                    
-
-                    
-
-                </form>
-
-
-            </section>
-
-   
-            <section>
-                <table border='1px'width='100%' >
-                    <thead>
-                        <th width='200'>Pizza Menu</th>
-                        <th width='200'>Ingredients</th>
-                        <th>Price</th>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Pepperoni</td>
-                            <td>Pepperoni, Mozza Cheese</td>
-                            <td>$18.99</td>
-                        </tr>
-                        <tr>
-                            <td>Veggie Lover</td>
-                            <td>Tomato, Basil, Onion, Bell Peppers, Greens, Cheese</td>
-                            <td>$15.99</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </section>
-
-            <section>
-
-                About me. Some content goes in here.
-
-            </section>
-
-            <section>
-
-                Contact forms here. All links to social media sites here.
-                
             </section>
 
 
