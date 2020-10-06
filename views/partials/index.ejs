@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>mydatanomix</title>
+		<link rel="shortcut icon" href="#" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body class="container">
+		<div class="container__nav-bar">
+			<div class="container__nav-bar-logo">
+				<h3 alt="Logo" class="navbar_logo">mydatanomix</h3>
+			</div>
+			<div class="container__nav-bar-contents">
+				<h4 class="navbar-contents">About Us</h4>
+				<h4 class="navbar-contents">Company Search</h4>
+				<h4 class="navbar-contents">Contact Us</h4>
+			</div>
+		</div>
+		<div class="container__header__logo-box"></div>
+
+		<div class="container__header__text-box">
+			<h1 class="heading-primary">
+				<span class="heading-primary--main">Visualize Economic Data</span>
+
+				<span class="heading-primary--sub"
+					>We help you visualize data from the SEC so that you can make better data driven
+					investment decisions.
+				</span>
+				<span class="heading-primary--sub">Currently serving NASDAQ-100 Companies. </span>
+			</h1>
+		</div>
+
+		<div class="container__about-section">
+			<div class="container__about-section__item">
+				<img class="about-section-icon" src="img/documents.svg" height="70" width="70" />
+				<h4 class="heading-about-section">10-K Annual Report</h4>
+				<p class="feature_text">
+					The annual report on Form 10-K provides a comprehensive overview of the
+					company's business, financial condition and audited financial statements.
+				</p>
+			</div>
+			<div class="container__about-section__item">
+				<img class="about-section-icon" src="img/monitor.svg" height="70" width="70" />
+
+				<h4 class="heading-about-section">Visualize Form 10-K Data</h4>
+				<p class="feature_text">
+					Visualize any company's last 10 years of data from Form 10-K along with
+					consolidated Yahoo! Finance data to understand the company's performance.
+				</p>
+			</div>
+			<div class="container__about-section__item">
+				<img class="about-section-icon" src="img/money.svg" height="70" width="70" />
+
+				<h4 class="heading-about-section">Data Driven Investments</h4>
+				<p class="feature_text">
+					Make better data driven investment decisions based on visualizations of
+					company's performance and it's last 10 years track records.
+				</p>
+			</div>
+		</div>
+
+		<div class="container__searchBar">
+			<form action="/" class="search-company-form" method="POST">
+				<input
+					class="searchBar"
+					name="searchBar"
+					type="text"
+					action="/admin/search"
+					method="POST"
+					placeholder="Enter NASDAQ-100 Company Name"
+				/>
+				<button class="search-button" type="submit">
+					<img class="about-section-icon" src="img/search.svg" height="30" width="30" />
+				</button>
+			</form>
+		</div>
+		<div class="container__graph-area-1">
+			<div class="container__graph-area-1__logo">
+				<img class="company-img" src="img/money.svg" height="80" width="80" />
+				<h4 class="graph-area-head">Company Name: <%= companyName %></h4>
+				<h4 class="graph-area-head">Ticker: <%= companyTicker %></h4>
+				<h4 class="graph-area-head">CIK: <%= companyCIK %></h4>
+				<h4 class="graph-area-head">Sector: <%= companySector %></h4>
+				<h4 class="graph-area-head">Industry: <%= companyIndustry %></h4>
+				<h4 class="graph-area-head">Headquarter: <%= companyHQ %></h4>
+				<h4 class="graph-area-head">Website: <%= companyWebsite %></h4>
+			</div>
+
+			<div class="container__graph-area-1__about">
+				<h4 class="graph-area-header">Company Description:</h4>
+			</div>
+		</div>
+		<div class="container__graph-area-2">
+			<div class="container__graph-area-2__one">
+				<h4 class="graph-area-header">50-Day Moving Average:</h4>
+				<h4 class="graph-area-desc">
+					The stock's average closing price over the last 50 days.
+				</h4>
+
+				<h4 class="graph-area-header">100-Day Moving Average:</h4>
+				<h4 class="graph-area-desc">
+					The stock's average closing price over the last 100 days.
+				</h4>
+
+				<h4 class="graph-area-header">Trailing P/E:</h4>
+				<h4 class="graph-area-desc">
+					Trailing Price-to-Earning is the current stock price divided by trailing
+					Earnings-per-Share(EPS) for the past 12 months.
+				</h4>
+
+				<h4 class="graph-area-header">Forward P/E:</h4>
+				<h4 class="graph-area-desc">
+					Forward Price-to-Earning is the current stock price divided by its predicted
+					Earnings-per-Share(EPS).
+				</h4>
+
+				<h4 class="graph-area-header">Trailing EPS:</h4>
+				<h4 class="graph-area-desc">
+					Trailing Earnings-per-Share(EPS) is the company's earnings generated over the
+					last 12 months on a rolling basis.
+				</h4>
+
+				<h4 class="graph-area-header">Forward EPS:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Trailing Annual Dividend Rate:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Forward Annual Dividend Rate:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			</div>
+			<div class="container__graph-area-2__two">
+				<h4 class="graph-area-header">Enterprise to Revenue Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Enterprise to EBITDA Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Profit Margins:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Short Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Company's 52-Week Change:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">S&P 52-Week Change:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Book Value:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Price to Book Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Earnings Quarterly Growth:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">PEG Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Beta Value:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+
+				<h4 class="graph-area-header">Payout Ratio:</h4>
+				<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			</div>
+		</div>
+
+		<div class="container__graph-area-3">
+			<form action="#">
+				<p>
+					<input type="checkbox" class="graph-params" value="total-current-assets" />
+					<label for="graph-params">Total Current Assets</label><br />
+				</p>
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Non-Current Assets</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Assets</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Current Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Non-Current Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Stockholders' Equity</label><br />
+			</form>
+		</div>
+
+		<div class="container__future-work">
+			<div class="container__future-work__item">
+				<img class="about-section-icon" src="img/admin.svg" height="70" width="70" />
+
+				<h4 class="heading-about-section">
+					Watch this space for more exciting content coming up!
+				</h4>
+				<p class="feature_text">
+					Our work shall not just be limited to NASDAQ 100 companies. We have great plans
+					ahead to bring visualizations for all markets! Also look out for some more
+					exciting features to help you better understand the economic data.
+				</p>
+			</div>
+		</div>
+		<div class="container__contact-form">contact form</div>
+		<div class="container__footer">
+			footer area "Icon made by Freepik from www.flaticon.com"
+		</div>
+	</body>
+</html>
