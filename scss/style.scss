@@ -110,15 +110,6 @@ body {
 	box-shadow: 0 0 10px 1px #ccc;
 }
 
-.search-button {
-	border: none;
-	background-color: #f2f2f2;
-}
-.search-button:active {
-	transform: translateY(2px);
-	background-color: #ffffff;
-}
-
 .navbar_logo {
 	color: $color-black;
 	font-weight: 400;
@@ -151,6 +142,7 @@ body {
 	font-size: 1.8rem;
 	line-height: 1.8;
 }
+/*
 .graph-area-header {
 	font-family: $font-primary;
 	font-weight: 600;
@@ -166,6 +158,7 @@ body {
 	padding-bottom: 3vh;
 	padding-right: 5vw;
 }
+*/
 
 .graph-params {
 	font-family: $font-primary;
@@ -256,7 +249,6 @@ body {
 
 	&__graph-area-2 {
 		grid-column: center-start / center-end;
-		padding: 4vh;
 		display: grid;
 		border: none;
 		box-shadow: 0 0 10px 2px #ccc;
@@ -264,6 +256,48 @@ body {
 		margin-bottom: 3vh;
 		grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 
+		.graph-area-header {
+			//grid-column: center-start / col-end 1;
+			display: flex;
+			justify-content: flex-end;
+			padding-top: 2vh;
+			padding-bottom: 2vh;
+			padding-right: 2vw;
+			font-family: $font-primary;
+			font-weight: 600;
+			font-size: 1.8rem;
+			line-height: 1.2;
+		}
+		.graph-area-desc {
+			//grid-column: col-end 2 / col-end 4;
+			display: flex;
+			padding-left: 2vw;
+			padding-right: 2vw;
+			padding-top: 2vh;
+			padding-bottom: 2vh;
+			justify-content: center;
+			width: 30vw;
+			font-family: $font-primary;
+			font-weight: 300;
+			font-size: 1.4rem;
+			line-height: 1.2;
+		}
+
+		.graph-area-value {
+			//grid-column: col-end 4 / center-end;
+			display: flex;
+			width: 15vw;
+			padding-left: 1vw;
+			padding-top: 2vh;
+			padding-bottom: 2vh;
+			justify-content: flex-start;
+			font-family: $font-primary;
+			font-weight: 600;
+			font-size: 1.8rem;
+			line-height: 1.2;
+		}
+
+		/*
 		&__one {
 			display: flex;
 			padding-left: 3vw;
@@ -274,6 +308,7 @@ body {
 			padding-left: 3vw;
 			flex-direction: column;
 		}
+		*/
 	}
 
 	&__graph-area-3 {
