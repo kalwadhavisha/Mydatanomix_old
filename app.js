@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const CompanyOverview = require("./models/setting-schema");
-const resVals = {};
 const app = express();
 
 app.use(express.static("public"));
@@ -31,11 +30,20 @@ mongoose
 	.catch((err) => console.log(err));
 
 app.get("/", function (req, res) {
-	res.render("partials/index", resVals);
+	res.render("index", {
+		companyName: null,
+		companyTicker: null,
+		companyCIK: null,
+		companySector: null,
+		companyIndustry: null,
+		companyHQ: null,
+		companyWebsite: null,
+	});
 	console.log("In get");
 });
 
 app.get("/company-search", function (req, res) {
+	/*
 	const companyOverview = new CompanyOverview({
 		Symbol: "PYPL",
 		AssetType: "Common Stock",
@@ -106,18 +114,8 @@ app.get("/company-search", function (req, res) {
 		.catch((err) => {
 			console.log(err);
 		});
-
-	//res.render("partials/index", resVals);
-	//console.log("In get");
-});
-
-app.post("/company-search", function (req, res) {
-	console.log("In post");
-	const compName = req.body;
-	console.log(compName);
-
-	const resVals = {
-		displayVal: false,
+	*/
+	res.render("index", {
 		companyName: null,
 		companyTicker: null,
 		companyCIK: null,
@@ -125,7 +123,36 @@ app.post("/company-search", function (req, res) {
 		companyIndustry: null,
 		companyHQ: null,
 		companyWebsite: null,
-	};
+	});
+	//console.log("In get");
+});
 
-	res.render("partials/index", resVals);
+app.post("/company-search", function (req, res) {
+	console.log("In post");
+	const compName = req.body.searchBar.toUpperCase();
+	console.log(compName);
+	console.log({ Symbol: compName });
+	CompanyOverview.find({ Symbol: compName })
+		.then((result) => {
+			res.render("index", {
+				companyName: result[0].Name,
+				companyTicker: result[0].Symbol,
+				companySector: result[0].Sector,
+				companyIndustry: result[0].Industry,
+				companyHQ: result[0].Address,
+				companyWebsite: null,
+				companyDescription: result[0].Description,
+				companyTrailingPE: result[0].TrailingPE,
+				companyForwardPE: result[0].ForwardPE,
+			});
+
+			/*
+			console.log(result[0].Name);
+			console.log(result[0].PERatio);
+			console.log(result[0].BookValue);
+			*/
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 });

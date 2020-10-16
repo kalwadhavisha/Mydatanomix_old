@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('./partials/head.ejs') %>
+	<body class="container">
+		<%- include('./partials/navbar.ejs') %> <%- include('./partials/landing-page.ejs') %>
+		<%-include('./partials/about-website.ejs') %>
+
+		<div class="container__searchBar">
+			<form action="/company-search" class="search-company-form" method="POST">
+				<input
+					class="searchBar"
+					name="searchBar"
+					type="text"
+					action="/admin/search"
+					method="POST"
+					placeholder="Enter NASDAQ-100 Company Name to search"
+				/>
+			</form>
+		</div>
+		<% if(companyName != null) { %>
+		<div class="container__graph-area-1">
+			<div class="container__graph-area-1__logo">
+				<img class="company-img" src="img/money.svg" height="80" width="80" />
+				<h4 class="graph-area-head">Company Name: <%= companyName %></h4>
+				<h4 class="graph-area-head">Ticker: <%= companyTicker %></h4>
+				<h4 class="graph-area-head">Sector: <%= companySector %></h4>
+				<h4 class="graph-area-head">Industry: <%= companyIndustry %></h4>
+				<h4 class="graph-area-head">Headquarter: <%= companyHQ %></h4>
+				<h4 class="graph-area-head">Website: <%= companyWebsite %></h4>
+			</div>
+
+			<div class="container__graph-area-1__about">
+				<h4 class="graph-area-header">Company Description: <%= companyDescription %></h4>
+			</div>
+		</div>
+		<div class="container__graph-area-2">
+			<h4 class="graph-area-header">Trailing P/E:</h4>
+			<h4 class="graph-area-desc">
+				Trailing Price-to-Earning is the current stock price divided by trailing
+				Earnings-per-Share(EPS) for the past 12 months.
+			</h4>
+			<h4 class="graph-area-value"><%= companyTrailingPE %></h4>
+
+			<h4 class="graph-area-header">Forward P/E:</h4>
+			<h4 class="graph-area-desc">
+				Forward Price-to-Earning is the current stock price divided by its predicted
+				Earnings-per-Share(EPS).
+			</h4>
+			<h4 class="graph-area-value"><%= companyForwardPE %></h4>
+
+			<h4 class="graph-area-header">Trailing EPS:</h4>
+			<h4 class="graph-area-desc">
+				Trailing Earnings-per-Share(EPS) is the company's earnings generated over the last
+				12 months on a rolling basis.
+			</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Forward EPS:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Trailing Annual Dividend Rate:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Forward Annual Dividend Rate:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Enterprise to Revenue Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Enterprise to EBITDA Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Profit Margins:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Short Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Company's 52-Week Change:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">S&P 52-Week Change:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Book Value:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Price to Book Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Earnings Quarterly Growth:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">PEG Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Beta Value:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+
+			<h4 class="graph-area-header">Payout Ratio:</h4>
+			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
+			<h4 class="graph-area-value"><%= companyName %></h4>
+		</div>
+
+		<div class="container__graph-area-3">
+			<form action="#">
+				<p>
+					<input type="checkbox" class="graph-params" value="total-current-assets" />
+					<label for="graph-params">Total Current Assets</label><br />
+				</p>
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Non-Current Assets</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Assets</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Current Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Non-Current Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Total Liabilities</label><br />
+
+				<input type="checkbox" class="graph-params" name="" value="" />
+				<label for="graph-params">Stockholders' Equity</label><br />
+			</form>
+		</div>
+		<% } else{ %>
+		<h1>bar</h1>
+		<% } %> <%-include('./partials/future-work.ejs') %>
+		<div class="container__contact-form">contact form</div>
+		<div class="container__footer">
+			footer area "Icon made by Freepik from www.flaticon.com"
+		</div>
+	</body>
+</html>
