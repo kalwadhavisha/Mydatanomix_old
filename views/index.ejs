@@ -13,124 +13,262 @@
 					type="text"
 					action="/admin/search"
 					method="POST"
-					placeholder="Enter NASDAQ-100 Company Name to search"
+					placeholder="Enter NASDAQ-100 Company Name"
 				/>
 			</form>
 		</div>
+
 		<% if(companyName != null) { %>
-		<div class="container__graph-area-1">
-			<div class="container__graph-area-1__logo">
-				<img class="company-img" src="img/money.svg" height="80" width="80" />
-				<h4 class="graph-area-head">Company Name: <%= companyName %></h4>
-				<h4 class="graph-area-head">Ticker: <%= companyTicker %></h4>
-				<h4 class="graph-area-head">Sector: <%= companySector %></h4>
-				<h4 class="graph-area-head">Industry: <%= companyIndustry %></h4>
-				<h4 class="graph-area-head">Headquarter: <%= companyHQ %></h4>
-				<h4 class="graph-area-head">Website: <%= companyWebsite %></h4>
-			</div>
 
-			<div class="container__graph-area-1__about">
-				<h4 class="graph-area-header">Company Description: <%= companyDescription %></h4>
+		<div class="container__viewSelectButtons">
+			<button class="viewButton" style="margin-left: 10%; margin-right: 10%">
+				Company Overview
+			</button>
+			<button class="viewButton" style="margin-right: 10%">Balance Sheet</button>
+			<button class="viewButton">Cash Flow</button>
+		</div>
+
+		<div class="container__graph-area-ratios-top">
+			<div class="graph-area-squares">
+				<span class="graph-area-header">Company Name:</span>
+				<span class="graph-area-value"><%= companyName %></span>
+
+				<span style="display: inline" class="graph-area-header">Ticker:</span>
+				<span style="display: inline" class="graph-area-value"><%= companyTicker %></span>
+
+				<span style="display: inline" class="graph-area-header">Asset Type:</span>
+				<span style="display: inline" class="graph-area-value"
+					><%= companyAssetType %></span
+				>
+			</div>
+			<div class="graph-area-squares">
+				<span style="display: inline" class="graph-area-header">Sector:</span>
+				<span style="display: inline" class="graph-area-value"><%= companySector %></span>
+
+				<div class="graph-area-header">Latest Quarter:</div>
+				<div class="graph-area-value"><%= companyLatestQuarter %></div>
+
+				<div class="graph-area-header">Headquarters:</div>
+				<div class="graph-area-value"><%= companyHQ %></div>
 			</div>
 		</div>
-		<div class="container__graph-area-2">
-			<h4 class="graph-area-header">Trailing P/E:</h4>
-			<h4 class="graph-area-desc">
-				Trailing Price-to-Earning is the current stock price divided by trailing
-				Earnings-per-Share(EPS) for the past 12 months.
-			</h4>
-			<h4 class="graph-area-value"><%= companyTrailingPE %></h4>
 
-			<h4 class="graph-area-header">Forward P/E:</h4>
-			<h4 class="graph-area-desc">
-				Forward Price-to-Earning is the current stock price divided by its predicted
-				Earnings-per-Share(EPS).
-			</h4>
-			<h4 class="graph-area-value"><%= companyForwardPE %></h4>
+		<div class="section-headers">KEY PARAMETERS</div>
 
-			<h4 class="graph-area-header">Trailing EPS:</h4>
-			<h4 class="graph-area-desc">
-				Trailing Earnings-per-Share(EPS) is the company's earnings generated over the last
-				12 months on a rolling basis.
-			</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+		<div class="container__graph-area-ratios">
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Market Capitalization</div>
+				<div class="graph-area-value">$ <%= companyMarketCap %></div>
+			</div>
 
-			<h4 class="graph-area-header">Forward EPS:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Profit Margin</div>
+				<div class="graph-area-value"><%= companyProfitMargin %></div>
+			</div>
 
-			<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Gross Profit</div>
+				<div class="graph-area-value">$ <%= companyGrossProfit %></div>
+			</div>
 
-			<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Revenue Per Share</div>
+				<div class="graph-area-value">$ <%= companyRevenuePerShare %></div>
+			</div>
 
-			<h4 class="graph-area-header">Trailing Annual Dividend Rate:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Revenue</div>
+				<div class="graph-area-value">$ <%= companyRevenue %></div>
+			</div>
 
-			<h4 class="graph-area-header">Forward Annual Dividend Rate:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Operating Margin</div>
+				<div class="graph-area-value"><%= companyOperatingMargin %></div>
+			</div>
 
-			<h4 class="graph-area-header">Trailing Annual Dividend Yield:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Earnings Per Share</div>
+				<div class="graph-area-value"><%= companyEPS %></div>
+			</div>
 
-			<h4 class="graph-area-header">Forward Annual Dividend Yield:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Return on Assets</div>
+				<div class="graph-area-value"><%= companyReturnOnAssets %></div>
+			</div>
 
-			<h4 class="graph-area-header">Enterprise to Revenue Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Return on Equity</div>
+				<div class="graph-area-value"><%= companyReturnOnEquity %></div>
+			</div>
 
-			<h4 class="graph-area-header">Enterprise to EBITDA Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">DilutedEPS</div>
+				<div class="graph-area-value"><%= companyDilutedEPS %></div>
+			</div>
 
-			<h4 class="graph-area-header">Profit Margins:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">EBITDA</div>
+				<div class="graph-area-value"><%= companyEBITDA %></div>
+			</div>
 
-			<h4 class="graph-area-header">Short Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Price to Earnings (PE) Ratio</div>
+				<div class="graph-area-value"><%= companyPERatio %></div>
+			</div>
 
-			<h4 class="graph-area-header">Company's 52-Week Change:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">PE to Growth (PEG) Ratio</div>
+				<div class="graph-area-value"><%= companyPEGRatio %></div>
+			</div>
 
-			<h4 class="graph-area-header">S&P 52-Week Change:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Book Value</div>
+				<div class="graph-area-value"><%= companyBookValue %></div>
+			</div>
 
-			<h4 class="graph-area-header">Book Value:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Quarterly Earnings Growth Year-on-Year</div>
+				<div class="graph-area-value"><%= companyQuarterlyEarningsYOY %></div>
+			</div>
 
-			<h4 class="graph-area-header">Price to Book Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Quarterly Revenue Growth Year-on-Year</div>
+				<div class="graph-area-value"><%= companyQuarterlyRevenueYOY %></div>
+			</div>
 
-			<h4 class="graph-area-header">Earnings Quarterly Growth:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Trailing PE</div>
+				<div class="graph-area-value"><%= companyTrailingPE %></div>
+			</div>
 
-			<h4 class="graph-area-header">PEG Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Forward PE</div>
+				<div class="graph-area-value"><%= companyForwardPE %></div>
+			</div>
 
-			<h4 class="graph-area-header">Beta Value:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Price to Sales Ratio</div>
+				<div class="graph-area-value"><%= companyPriceToSales %></div>
+			</div>
 
-			<h4 class="graph-area-header">Payout Ratio:</h4>
-			<h4 class="graph-area-desc">The average of last 50 days of the stock price</h4>
-			<h4 class="graph-area-value"><%= companyName %></h4>
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Price to Book Ratio</div>
+				<div class="graph-area-value"><%= companyPriceToBook %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">EV to Revenue</div>
+				<div class="graph-area-value"><%= companyEVToRevenue %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">EV to EBITDA</div>
+				<div class="graph-area-value"><%= companyEVTOEBITDA %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Beta</div>
+				<div class="graph-area-value"><%= companyBeta %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Shares Outstanding</div>
+				<div class="graph-area-value"><%= companySharesOutstanding %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Shares Float</div>
+				<div class="graph-area-value"><%= companySharesFloat %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Shares Short</div>
+				<div class="graph-area-value"><%= companySharesShort %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Shares Short Prior Month</div>
+				<div class="graph-area-value"><%= companySharesShortPriorMonth %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Short Ratio</div>
+				<div class="graph-area-value"><%= companyShortRatio %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Short Percent Outstanding</div>
+				<div class="graph-area-value"><%= companyShortPercentOutstanding %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Short Percent Float</div>
+				<div class="graph-area-value"><%= companyShortPercentFloat %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Percent Institutions</div>
+				<div class="graph-area-value"><%= companyPercentInstitutions %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Percent Insiders</div>
+				<div class="graph-area-value"><%= companyPercentInsiders %></div>
+			</div>
 		</div>
+
+		<% if(companyDividendDate != "None") { %>
+
+		<div class="section-headers">DIVIDEND INFORMATION</div>
+
+		<div class="container__graph-area-ratios">
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Forward Annual Dividend Rate</div>
+				<div class="graph-area-value"><%= companyForwardAnnualDividendRate %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Forward Annual Dividend Yield</div>
+				<div class="graph-area-value"><%= companyForwardAnnualDividendYield %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Payout Ratio</div>
+				<div class="graph-area-value"><%= companyPayoutRatio %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Dividend Date</div>
+				<div class="graph-area-value"><%= companyDividendDate %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Ex-Dividend Date</div>
+				<div class="graph-area-value"><%= companyExDividendDate %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Last Split Factor</div>
+				<div class="graph-area-value"><%= companyLastSplitFactor %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Last Split Date</div>
+				<div class="graph-area-value"><%= companyLastSplitDate %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Dividend Per Share</div>
+				<div class="graph-area-value"><%= companyDividendPerShare %></div>
+			</div>
+
+			<div class="graph-area-squares">
+				<div class="graph-area-header">Dividend Yield</div>
+				<div class="graph-area-value"><%= companyDividendYield %></div>
+			</div>
+		</div>
+		<% } %>
+		<!--
 
 		<div class="container__graph-area-3">
 			<form action="#">
@@ -158,8 +296,8 @@
 				<label for="graph-params">Stockholders' Equity</label><br />
 			</form>
 		</div>
-		<% } else{ %>
-		<h1>bar</h1>
+
+-->
 		<% } %> <%-include('./partials/future-work.ejs') %>
 		<div class="container__contact-form">contact form</div>
 		<div class="container__footer">

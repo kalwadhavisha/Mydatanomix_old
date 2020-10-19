@@ -30,12 +30,12 @@ body {
 .heading-primary {
   color: #000000;
   line-height: 2;
-  padding-right: 10vw;
-  padding-left: 4vw;
+  padding-right: 5vw;
+  padding-left: 1vw;
   font-weight: 300; }
   .heading-primary--main {
     display: block;
-    font-size: 4rem;
+    font-size: 3.6rem;
     font-weight: 500;
     animation-name: moveInRight;
     animation-duration: 1.5s;
@@ -45,19 +45,19 @@ body {
     font-size: 2rem;
     font-weight: 300;
     line-height: 1.4;
-    padding-right: 6vw;
+    padding-right: 1vw;
     animation: moveInRight 1.5s ease-out; }
 
 .about-section-icon {
   grid-row: 1 / span 2; }
 
 .heading-about-section {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600; }
 
 .feature_text {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400; }
 
@@ -113,34 +113,22 @@ body {
   justify-content: center;
   margin-bottom: 3vh; }
 
-.graph-area-head {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 600;
-  font-size: 1.8rem;
-  line-height: 1.8; }
-
-/*
-.graph-area-header {
-	font-family: $font-primary;
-	font-weight: 600;
-	font-size: 1.8rem;
-	line-height: 1.2;
-}
-.graph-area-desc {
-	font-family: $font-primary;
-	font-weight: 300;
-	font-size: 1.4rem;
-	line-height: 1.2;
-	color: $color-grey;
-	padding-bottom: 3vh;
-	padding-right: 5vw;
-}
-*/
 .graph-params {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 1.5; }
+
+.section-headers {
+  grid-column: col-end 3 / col-end 6;
+  color: #000000;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  padding-left: 1vw; }
 
 .container {
   display: grid;
@@ -156,20 +144,30 @@ body {
     .container__nav-bar-contents {
       display: flex;
       justify-content: space-between; }
-  .container__header__logo-box {
-    grid-column: full-start / col-end 4; }
-  .container__header__text-box {
-    grid-column: col-end 4 / full-end;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center; }
+  .container__header {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+    .container__header__logo-box {
+      grid-column: full-start / col-end 5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 5vh;
+      padding-right: 2vw; }
+    .container__header__text-box {
+      grid-column: col-end 5 / full-end;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center; }
   .container__about-section {
     background-color: #fff;
     grid-column: center-start / center-end;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-gap: 6rem;
+    padding-top: 2vh;
     padding-bottom: 7vw; }
     .container__about-section__item {
       display: grid;
@@ -180,43 +178,112 @@ body {
   .container__searchBar {
     grid-column: col-end 1 / col-end 7;
     padding-bottom: 7vh; }
-  .container__graph-area-1 {
+  .container__viewSelectButtons {
     grid-column: center-start / center-end;
-    padding: 4vh;
+    padding-top: 3vh;
+    padding-bottom: 5vh; }
+    .container__viewSelectButtons .viewButton {
+      border: 1px solid blueviolet;
+      background-color: #ffffff;
+      font-size: 1.6rem;
+      padding: 14px 40px;
+      border-radius: 8px;
+      width: 20%;
+      align-items: center;
+      transition-duration: 0.4s; }
+    .container__viewSelectButtons .viewButton:hover,
+    .container__viewSelectButtons .viewButton:active {
+      outline: none;
+      background-color: blueviolet;
+      cursor: pointer; }
+  .container__graph-area-ratios-top {
+    grid-column: col-end 1 / col-end 7;
     display: grid;
-    border: none;
-    box-shadow: 0 0 10px 2px #ccc;
-    border-radius: 30px;
-    margin-bottom: 3vh;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
-    .container__graph-area-1__logo {
-      grid-template-rows: min-content 1fr;
-      display: flex;
-      padding-left: 3vw;
-      flex-direction: column; }
-    .container__graph-area-1__about {
-      display: flex;
-      flex-direction: column; }
+    .container__graph-area-ratios-top .graph-area-squares {
+      grid-template-columns: 40px 40px 40px;
+      grid-template-rows: 35px 35px 35px;
+      margin: 10px;
+      display: grid;
+      padding-left: 2vw;
+      padding-top: 3vh;
+      padding-right: 2vw;
+      padding-bottom: 3vh;
+      border: 0.5px solid #eee;
+      font-family: "Source Sans Pro", sans-serif;
+      border-radius: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+      .container__graph-area-ratios-top .graph-area-squares .graph-area-header {
+        display: flex;
+        padding-top: 1vh;
+        justify-content: flex-start;
+        padding-bottom: 1vh;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: #777;
+        line-height: 1.2; }
+      .container__graph-area-ratios-top .graph-area-squares .graph-area-value {
+        display: flex;
+        justify-content: flex-start;
+        color: #000000;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        padding-bottom: 1vh;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+  .container__graph-area-ratios {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+    .container__graph-area-ratios .graph-area-squares {
+      grid-template-columns: 70px 70px 70px 70px;
+      grid-template-rows: 40px;
+      margin: 10px;
+      display: grid;
+      padding-left: 2vw;
+      padding-top: 2vh;
+      padding-bottom: 3vh;
+      border: 0.5px solid #eee;
+      font-family: "Source Sans Pro", sans-serif;
+      border-radius: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+      .container__graph-area-ratios .graph-area-squares .graph-area-header {
+        display: flex;
+        padding-top: 1vh;
+        justify-content: flex-start;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: #777;
+        line-height: 1.2; }
+      .container__graph-area-ratios .graph-area-squares .graph-area-value {
+        display: flex;
+        justify-content: flex-start;
+        color: #000000;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        line-height: 1.2;
+        padding-bottom: 1vh;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
+      .container__graph-area-ratios .graph-area-squares .graph-area-desc {
+        color: #777;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 300;
+        width: 50%;
+        font-size: 1.2rem;
+        line-height: 1;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
   .container__graph-area-2 {
     grid-column: center-start / center-end;
     display: grid;
-    border: none;
-    box-shadow: 0 0 10px 2px #ccc;
+    border: 0.5px solid #ccc;
     border-radius: 30px;
+    margin-top: 3vh;
     margin-bottom: 3vh;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    /*
-		&__one {
-			display: flex;
-			padding-left: 3vw;
-			flex-direction: column;
-		}
-		&__two {
-			display: flex;
-			padding-left: 3vw;
-			flex-direction: column;
-		}
-		*/ }
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); }
     .container__graph-area-2 .graph-area-header {
       display: flex;
       justify-content: flex-end;
@@ -247,8 +314,8 @@ body {
       padding-bottom: 2vh;
       justify-content: flex-start;
       font-family: "Source Sans Pro", sans-serif;
-      font-weight: 600;
-      font-size: 1.8rem;
+      font-weight: 400;
+      font-size: 1.6rem;
       line-height: 1.2; }
   .container__graph-area-3 {
     grid-column: center-start / center-end;
