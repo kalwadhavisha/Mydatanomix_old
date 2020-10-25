@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>mydatanomix</title>
+		<link rel="shortcut icon" href="#" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+		<!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>-->
+		<style>
+			body {
+				font-family: "Source Sans Pro", sans-serif;
+				background-color: #fcfcfc;
+			}
+			.side-bar-elements {
+				color: #999;
+				text-align: center;
+				font-size: 16px;
+				font-family: "Source Sans Pro", sans-serif;
+				cursor: pointer;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				border-radius: 5px;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+				z-index: 1;
+				max-height: 54vh;
+				overflow: scroll;
+			}
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+			.dropdown-content a:hover {
+				background-color: #ccc;
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown:hover .dropdown-button {
+				background-color: #003d94;
+				box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			}
+
+			.arrow {
+				border: solid #fff;
+				border-width: 0 3px 3px 0;
+				display: inline-block;
+				padding: 4px;
+				margin-left: 1vw;
+			}
+
+			.down {
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div
+			class="container"
+			style="display: grid; grid-template-rows: 4vw 2vh repeat(7, min-content)"
+		>
+			<div
+				class="container__nav-bar"
+				style="position: fixed; height: 8vh; background: #fcfcfc; z-index: 10"
+			>
+				<div class="container__nav-bar-logo">
+					<h3 alt="Logo" class="navbar_logo">mydatanomix</h3>
+				</div>
+				<div class="container__nav-bar-contents">
+					<a href="#about-section" style="text-decoration: none"
+						><h4 class="navbar-contents">About Us</h4></a
+					>
+					<a href="#searchBar" style="text-decoration: none"
+						><h4 class="navbar-contents">Company Search</h4></a
+					>
+					<a href="#contact-us" style="text-decoration: none"
+						><h4 class="navbar-contents">Contact Us</h4></a
+					>
+				</div>
+			</div>
+		</div>
+		<!-- Sidebar fixed  box-shadow: 0 0 1rem #ccc; -->
+		<div
+			class="side-bar"
+			style="
+				position: fixed;
+				border: 0.5px solid #eee;
+				border-radius: 10px;
+				height: 80vh;
+				text-align: center;
+				width: 20vw;
+				background: #fff;
+				padding: 5px;
+				margin-top: 3vh;
+			"
+		>
+			<div
+				class="text-in-sidebar"
+				style="
+					margin-bottom: 3vh;
+					color: #999;
+					font-size: 16px;
+					margin-top: 5vh;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 5vh;
+				"
+			>
+				From the Dropdown below, select any Performance Overview parameter to visualize.
+			</div>
+			<div class="dropdown" style="position: relative; display: inline-block">
+				<button
+					class="dropdown-button"
+					style="
+						background-color: #003d94;
+						color: white;
+						padding: 16px;
+						width: 16vw;
+						font-size: 16px;
+						border-radius: 5px;
+						border: none;
+						text-align: center;
+						cursor: pointer;
+					"
+				>
+					Select Parameter <i class="arrow down"> </i>
+				</button>
+				<div class="dropdown-content">
+					<a class="side-bar-elements" href="/viz-page" name="marketCapReq"
+						>Market Capitalization</a
+					>
+					<a class="side-bar-elements" href="#">Gross Profit </a>
+					<a class="side-bar-elements" href="#">Revenue</a>
+					<a class="side-bar-elements" href="#">Operating Margin</a>
+					<a class="side-bar-elements" href="#">Profit Margin</a>
+					<a class="side-bar-elements" href="#">Revenue Per Share</a>
+					<a class="side-bar-elements" href="#">Earnings Per Share</a>
+					<a class="side-bar-elements" href="#">Return on Assets</a>
+					<a class="side-bar-elements" href="#">Return on Equity</a>
+					<a class="side-bar-elements" href="#">EBITDA</a>
+					<a class="side-bar-elements" href="#">Price to Earnings (PE) Ratio</a>
+					<a class="side-bar-elements" href="#">PE to Growth (PEG) Ratio</a>
+					<a class="side-bar-elements" href="#">Book Value</a>
+					<a class="side-bar-elements" href="#">Beta</a>
+					<a class="side-bar-elements" href="#">Quarterly Earnings Growth YoY</a>
+					<a class="side-bar-elements" href="#">Quarterly Revenue Growth YoY</a>
+					<a class="side-bar-elements" href="#">Price to Sales Ratio</a>
+					<a class="side-bar-elements" href="#">Price to Book Ratio</a>
+					<a class="side-bar-elements" href="#">EV to Revenue</a>
+					<a class="side-bar-elements" href="#">EV to EBITDA</a>
+					<a class="side-bar-elements" href="#">Shares Float</a>
+					<a class="side-bar-elements" href="#">Shares Short</a>
+					<a class="side-bar-elements" href="#">Short Ratio</a>
+					<a class="side-bar-elements" href="#">Short Percent Outstanding</a>
+					<a class="side-bar-elements" href="#">Short Percent Float</a>
+					<a class="side-bar-elements" href="#">Percent Institutions</a>
+					<a class="side-bar-elements" href="#">Percent Insiders</a>
+					<a class="side-bar-elements" href="#">Dividend Per Share</a>
+					<a class="side-bar-elements" href="#">Dividend Yield</a>
+					<a class="side-bar-elements" href="#">Payout Ratio</a>
+				</div>
+			</div>
+			<div
+				class="side-bar-info"
+				style="margin-top: 12vh; margin-left: 10px; margin-right: 10px"
+			>
+				<div
+					class="side-bar-info-heading"
+					style="color: #000; font-weight: bold; font-size: 24px"
+				>
+					Market Capitalization
+				</div>
+				<div
+					class="side-bar-info-desc"
+					style="margin-top: 2vh; color: #777; font-size: 18px"
+				>
+					Market Capitalization: Total number of outstanding shares multiplied by the
+					current market price of the stock.
+				</div>
+			</div>
+		</div>
+		<!-- Div for the charts  -->
+		<div
+			class="chart-container-div"
+			style="position: absolute; height: auto; margin-top: 3vh; width: 80vw; right: 1vw"
+		>
+			<!-- *********   CHART 1: BAR CHART   *********** -->
+
+			<div
+				class="chart-container"
+				style="
+					position: relative;
+					border-radius: 10px;
+					height: auto;
+					width: 60vw;
+					margin: auto;
+					background: #fff;
+					box-shadow: 0 0 0.5rem #ccc;
+				"
+			>
+				<canvas id="myChart1" role="img"></canvas>
+			</div>
+			<div class="spacing" style="position: relative; margin-top: 5vh"></div>
+
+			<!-- *********   CHART 2:  SCATTER PLOT   *********** -->
+			<div
+				class="chart-container"
+				style="
+					position: relative;
+					background: #fff;
+					box-shadow: 0 0 0.5rem #ccc;
+					border-radius: 10px;
+					height: auto;
+					width: 72vw;
+					margin: auto;
+				"
+			>
+				<canvas id="myChart2" role="img"></canvas>
+			</div>
+			<div class="spacing" style="position: relative; margin-top: 10vh"></div>
+		</div>
+
+		<script>
+			// *********   CHART 1: Bar Chart   ***********
+			var ctx = document.getElementById("myChart1").getContext("2d");
+			var compSymbols = <%- JSON.stringify(compSymbols) %>;
+			var compLongNames = <%- JSON.stringify(compLongNames) %>;
+			var compDataVal = <%- JSON.stringify(compDataVal) %>;
+			console.log(compSymbols);
+			var myChart = new Chart(ctx, {
+				type: "bar",
+				data: {
+					labels: compSymbols.slice(0,10),
+					longlabels: compLongNames.slice(0,10),
+					datasets: [
+						{
+							label: "Top-10 Market Capitalization for NASDAQ-100 companies ($)",
+							data: compDataVal.slice(0,10),
+							backgroundColor: "rgb(115,0,226)",
+							borderColor: "rgb(115,0,226)",
+							order: 1,
+							borderWidth: 1,
+							hoverBackgroundColor: "rgb(115,0,226)",
+							hoverBorderWidth: 2,
+						},
+					],
+				},
+				options: {
+					layout: {
+						padding: {
+							left: 20,
+							right: 20,
+							top: 10,
+							bottom: 20,
+						},
+					},
+					scales: {
+						yAxes: [
+							{
+								ticks: {
+									beginAtZero: true,
+									callback: function (value, index, data) {
+										return "$ " + value < 1000000
+											? "$ " + value / 1000 + " K"
+											: value < 1000000
+											? "$ " + value / 1000000 + " M"
+											: "$ " + value / 1000000000 + " B";
+									},
+								},
+							},
+						],
+					},
+					tooltips: {
+						callbacks: {
+							label: function (tooltipItem, data) {
+								var longlabel = data.longlabels[tooltipItem.index];
+								return longlabel + ": $" + tooltipItem.yLabel;
+							},
+						},
+					},
+					animation: {
+						duration: 1000,
+						easing: "linear",
+					},
+				},
+			});
+
+			// *********   CHART 2: Scatter Plot   ***********
+
+			var ctx = document.getElementById("myChart2").getContext("2d");
+			var myChart = new Chart(ctx, {
+				type: "scatter",
+				data: {
+					labels: ["AAPL", "AMZN", "MSFT", "FB", "NVDA"],
+					longlabels: ["Apple", "Amazon", "Microsoft", "Facebook", "NVIDIA"],
+					datasets: [
+						{
+							label: "Market Capitalization for all NASDAQ-100 companies ($)",
+							data: [
+								{
+									x: 2004156416000,
+									y: 2004156416000,
+								},
+								{
+									x: 1589889859584,
+									y: 1589889859584,
+								},
+								{
+									x: 1630773051392,
+									y: 1630773051392,
+								},
+								{
+									x: 799207981056,
+									y: 799207981056,
+								},
+								{
+									x: 3341832652,
+									y: 3341832652,
+								},
+							],
+							pointRadius: 5,
+							pointHoverRadius: 10,
+							pointHoverBorderColor: "rgb(0,0,0)",
+							pointHoverBorderWidth: 1.5,
+							pointBackgroundColor: "rgb(255, 99, 132)",
+							borderColor: "rgb(255, 99, 132)",
+							backgroundColor: "rgb(255, 99, 132)",
+						},
+					],
+				},
+				options: {
+					layout: {
+						padding: {
+							left: 20,
+							right: 20,
+							top: 10,
+							bottom: 20,
+						},
+					},
+					scales: {
+						xAxes: [
+							{
+								type: "linear",
+								position: "bottom",
+								ticks: {
+									beginAtZero: true,
+									callback: function (value, index, data) {
+										return value < 1000000
+											? "$ " + value / 1000 + " K"
+											: value < 1000000
+											? "$ " + value / 1000000 + " M"
+											: "$ " + value / 1000000000 + " B";
+									},
+								},
+							},
+						],
+						yAxes: [
+							{
+								ticks: {
+									beginAtZero: true,
+									callback: function (value, index, data) {
+										return value < 1000000
+											? "$ " + value / 1000 + " K"
+											: value < 1000000
+											? "$ " + value / 1000000 + " M"
+											: "$ " + value / 1000000000 + " B";
+									},
+								},
+							},
+						],
+					},
+					tooltips: {
+						callbacks: {
+							label: function (tooltipItem, data) {
+								var longlabel = data.longlabels[tooltipItem.index];
+								return longlabel + ": $" + tooltipItem.xLabel;
+							},
+						},
+					},
+					animation: {
+						duration: 1000,
+						easing: "linear",
+					},
+				},
+			});
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	</body>
+</html>
